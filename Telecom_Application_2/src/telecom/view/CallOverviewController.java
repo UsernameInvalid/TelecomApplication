@@ -137,9 +137,9 @@ public class CallOverviewController {
      */
     @FXML
     private void handleDeleteCall() {
-        int selectedIndex = callTable.getSelectionModel().getSelectedIndex();
-        if (selectedIndex >= 0) {
-            callTable.getItems().remove(selectedIndex);
+        Call selectedItem = callTable.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            mainApp.getCallData().remove(selectedItem);
         } else {
             // Nothing selected.
             Alert alert = new Alert(AlertType.WARNING);
