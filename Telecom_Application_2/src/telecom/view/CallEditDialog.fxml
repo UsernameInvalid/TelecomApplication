@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.collections.FXCollections ?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telecom.view.CallEditDialogController">
+   <children>
+      <GridPane layoutX="10.0" layoutY="14.0" vgap="25.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="457.0" minWidth="10.0" prefWidth="190.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="508.0" minWidth="10.0" prefWidth="490.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Issue:" GridPane.rowIndex="5">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Can Be Reached: " GridPane.rowIndex="4">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Verified:" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Spoke With: " GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Account Name:" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="xxx-xxx-xxxx" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="3.0" top="45.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Billing Number">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="xxx-xxx-xxxx" GridPane.columnIndex="1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="3.0" top="45.0" />
+               </GridPane.margin>
+            </Label>
+            <TextField fx:id="billingNumberField" prefHeight="25.0" prefWidth="405.0" GridPane.columnIndex="1">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets right="300.0" />
+               </GridPane.margin></TextField>
+            <TextField fx:id="accountNameField" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets right="300.0" />
+               </GridPane.margin></TextField>
+            <TextField fx:id="spokeWithField" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets right="300.0" />
+               </GridPane.margin></TextField>
+            <ComboBox fx:id="verifiedBox" onAction="#handleValidation" onMouseMoved="#handleValidation" prefWidth="150.0" promptText="Choose a Value" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            	<items>
+            		<FXCollections fx:factory="observableArrayList">
+            			<String fx:value="Last 4 of SSN" />
+            			<String fx:value="PIN #" />
+            			<String fx:value="DOB" />
+            			<String fx:value="Tax ID #" />
+            			<String fx:value="Bypass" />
+            		</FXCollections>
+            	</items>
+            </ComboBox>
+            <TextField fx:id="canBeReachedField" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets right="300.0" />
+               </GridPane.margin></TextField>
+            <RadioButton fx:id="issue1Radio" mnemonicParsing="false" text="DSL" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <toggleGroup>
+                  <ToggleGroup fx:id="Issue" />
+               </toggleGroup>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </RadioButton>
+            <RadioButton fx:id="issue2Radio" mnemonicParsing="false" text="FIOS" toggleGroup="$Issue" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets left="100.0" />
+               </GridPane.margin>
+            </RadioButton>
+            <RadioButton fx:id="issue2Radio1" mnemonicParsing="false" text="POTS" toggleGroup="$Issue" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets left="200.0" />
+               </GridPane.margin>
+            </RadioButton>
+            <TextField fx:id="crisIDField" opacity="0.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="160.0" right="200.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="crisNameField" opacity="0.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="300.0" />
+               </GridPane.margin>
+            </TextField>
+            <Label fx:id="crisNameLabel" opacity="0.0" text="Name:" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets bottom="45.0" left="300.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="crisIDLabel" opacity="0.0" text="Cris ID:" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets bottom="45.0" left="160.0" />
+               </GridPane.margin>
+            </Label>
+         </children>
+      </GridPane>
+      <HBox layoutX="250.0" layoutY="350.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+         <children>
+            <Button layoutX="250.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleOk" prefHeight="30.0" prefWidth="101.0" text="OK" />
+            <Button layoutX="366.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="30.0" prefWidth="101.0" text="Cancel" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
