@@ -120,6 +120,7 @@ public class CallEditDialogController {
             call.setSpokeWith(spokeWithField.getText());
             call.setCanBeReached(canBeReachedField.getText());
             call.setVerified(verifiedBox.getValue());
+            
             if( verifiedBox.getValue().equals("Bypass")){
             	call.setCrisID(crisIDField.getText());
             	call.setCrisName(crisNameField.getText());

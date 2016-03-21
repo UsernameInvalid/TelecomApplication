@@ -13,7 +13,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TableView fx:id="callTable" layoutX="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="callTable" layoutX="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
                     <columns>
                       <TableColumn fx:id="billingNumberColumn" prefWidth="111.0" text="Billing Telephone" />
                       <TableColumn fx:id="callStartColumn" prefWidth="95.0" text="Call Start" />
@@ -22,6 +22,8 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
+                  <Label layoutX="14.0" layoutY="6.0" text="Filter:" />
+                  <TextField fx:id="filterField" layoutX="67.0" layoutY="2.0" prefHeight="25.0" prefWidth="224.0" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">

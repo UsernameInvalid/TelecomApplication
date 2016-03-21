@@ -2,12 +2,15 @@ package telecom.view;
 
 import java.time.LocalDateTime;
 
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import telecom.MainApp;
 import telecom.model.Call;
 import telecom.util.DateUtil;
@@ -30,6 +33,8 @@ public class CallOverviewController {
     private Label canBeReachedLabel;
     @FXML
     private Label issueLabel;
+    @FXML
+    private TextField filterField;
 
     // Reference to the main application.
     private MainApp mainApp;
@@ -57,6 +62,11 @@ public class CallOverviewController {
         // Listen for selection changes and show the person details when changed.
         callTable.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> showCallDetails(newValue));
+        
+
+
+       
+
     }
 
     /**
@@ -69,6 +79,36 @@ public class CallOverviewController {
 
         // Add observable list data to the table
         callTable.setItems(mainApp.getCallData());
+        FilteredList<Call> filteredData = new FilteredList<>(mainApp.getCallData(), p -> true);
+
+        // 2. Set the filter Predicate whenever the filter changes.
+        filterField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(person -> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Compare first name and last name of every person with filter text.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (person.getBillingNumber().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches first name.
+                } else if (person.getCallStart().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                }
+                return false; // Does not match.
+            });
+        });
+
+        // 3. Wrap the FilteredList in a SortedList. 
+        SortedList<Call> sortedData = new SortedList<>(filteredData);
+
+        // 4. Bind the SortedList comparator to the TableView comparator.
+        sortedData.comparatorProperty().bind(callTable.comparatorProperty());
+
+        // 5. Add sorted (and filtered) data to the table.
+        callTable.setItems(sortedData);
     }
     
     private void showCallDetails(Call call) {

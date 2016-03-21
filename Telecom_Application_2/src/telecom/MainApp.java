@@ -7,6 +7,7 @@ import java.time.Month;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -24,17 +25,18 @@ public class MainApp extends Application {
 
     private ObservableList<Call> callData = FXCollections.observableArrayList();
 
+
     /**
-     * Constructor
+     * Constructor Test
      */
     public MainApp() {
         // Add some sample data
-    	//callData.add(new Call("352-321-1335", LocalDateTime.of(2016, Month.MARCH, 18, 8, 12)));
-    	//callData.add(new Call("352-460-5957", LocalDateTime.of(2016, Month.MARCH, 18, 8, 20)));
-    	callData.add(new Call("352-460-5956", "18-03-2016 08:12"));
+    	callData.add(new Call("352-321-1335", "18-03-2016 08:12"));
     	callData.add(new Call("352-460-5957", "18-03-2016 08:21"));
-    	callData.add(new Call("352-460-5957", "18-03-2016 10:15"));
-    	callData.add(new Call("352-460-5957", "18-04-2016 08:22"));
+    	callData.add(new Call("352-435-6336", "18-03-2016 10:15"));
+    	callData.add(new Call("352-435-6336", "18-04-2016 08:22"));
+    	
+
     }
 
     /**
