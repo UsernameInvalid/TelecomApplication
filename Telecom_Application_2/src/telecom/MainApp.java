@@ -34,7 +34,7 @@ public class MainApp extends Application {
     	callData.add(new Call("352-321-1335", "18-03-2016 08:12"));
     	callData.add(new Call("352-460-5957", "18-03-2016 08:21"));
     	callData.add(new Call("352-435-6336", "18-03-2016 10:15"));
-    	callData.add(new Call("352-435-6336", "18-04-2016 08:22"));
+    	callData.add(new Call("352-435-6336", "19-03-2016 08:22"));
     	
 
     }
