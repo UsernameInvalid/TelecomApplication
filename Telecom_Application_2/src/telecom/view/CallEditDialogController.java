@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
@@ -83,13 +84,17 @@ public class CallEditDialogController {
         crisNameField.setText(call.getCrisName());
         
         if( verifiedBox.getValue().equals("Bypass")){
+        	crisIDField.setCursor(Cursor.TEXT);
         	crisIDLabel.setOpacity(1);
         	crisIDField.setOpacity(1);
+        	crisNameField.setCursor(Cursor.TEXT);
         	crisNameLabel.setOpacity(1);
         	crisNameField.setOpacity(1);
         } else{
+        	crisIDField.setCursor(Cursor.DEFAULT);
         	crisIDLabel.setOpacity(0);
         	crisIDField.setOpacity(0);
+        	crisNameField.setCursor(Cursor.DEFAULT);
         	crisNameLabel.setOpacity(0);
         	crisNameField.setOpacity(0);
         }            
@@ -121,6 +126,7 @@ public class CallEditDialogController {
             call.setCanBeReached(canBeReachedField.getText());
             call.setVerified(verifiedBox.getValue());
             
+
             if( verifiedBox.getValue().equals("Bypass")){
             	call.setCrisID(crisIDField.getText());
             	call.setCrisName(crisNameField.getText());
@@ -147,13 +153,17 @@ public class CallEditDialogController {
     private void handleValidation() {
     	
         if( verifiedBox.getValue().equals("Bypass")){
+        	crisIDField.setCursor(Cursor.TEXT);
         	crisIDLabel.setOpacity(1);
         	crisIDField.setOpacity(1);
+        	crisNameField.setCursor(Cursor.TEXT);
         	crisNameLabel.setOpacity(1);
         	crisNameField.setOpacity(1);
         } else{
+        	crisIDField.setCursor(Cursor.DEFAULT);
         	crisIDLabel.setOpacity(0);
         	crisIDField.setOpacity(0);
+        	crisNameField.setCursor(Cursor.DEFAULT);
         	crisNameLabel.setOpacity(0);
         	crisNameField.setOpacity(0);
         }
